@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var formValidate = $('#register-form').validate({
     rules: {
-      email: {
+      username: {
         email: true,
         required: true
       },

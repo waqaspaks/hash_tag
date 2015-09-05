@@ -30,7 +30,7 @@
                     }
                     else
                     {
-                      <li><a href="javascript:void(0)" class="bold" id="logout-user">@model.user.username.split('@')[0] logout</a></li>
+                      <li><a href="javascript:void(0)" class="bold" id="logout-user">@model.user.username.split('@')[0] (logout)</a></li>
                     }
                         </ul>
                 </div>
