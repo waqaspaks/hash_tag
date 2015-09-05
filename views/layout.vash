@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+@html.block("style")
+<title>@model.title</title>
+</head>
+
+@html.block("body")
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/lib/jquery-ui/jquery-ui.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+
+<script src="/lib/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+<script src="/lib/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+<script type="text/javascript" src="/lib/jquery-file-upload/js/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/lib/html2canvas/build/html2canvas.js"></script>
+
+<script src="/js/services/authtoken.js"></script>
+<script src="/js/services/userinfo.js"></script>
+<script src="/js/services/shopify.js"></script>
+@html.block("scripts")
+</html>

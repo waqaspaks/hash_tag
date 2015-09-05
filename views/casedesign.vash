@@ -1,0 +1,300 @@
+@html.extend('../views/layout.vash',function(model){
+    @html.block("style", function(model){
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/lib/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="/lib/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="/css/app.css">
+    })
+    @html.block("body",function(model){
+        <body>
+
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="/images/mycase.png" width="355" height="88" alt="Hash tag my case" class="img-responsive" /></a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="nav navbar-nav navbar-right">
+                    @if(!model.user){
+                      <li><a href="/login" class="bold" id="logout-user">login</a></li>
+                    }
+                    else
+                    {
+                      <li><a href="javascript:void(0)" class="bold" id="logout-user">@model.user.username.split('@')[0] logout</a></li>
+                    }
+                        </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div id="js-loader" class="loader">
+        <div class="floating-bars">
+            <div class="blockG" id="rotateG_01">
+            </div>
+            <div class="blockG" id="rotateG_02">
+            </div>
+            <div class="blockG" id="rotateG_03">
+            </div>
+            <div class="blockG" id="rotateG_04">
+            </div>
+            <div class="blockG" id="rotateG_05">
+            </div>
+            <div class="blockG" id="rotateG_06">
+            </div>
+            <div class="blockG" id="rotateG_07">
+            </div>
+            <div class="blockG" id="rotateG_08">
+            </div>
+        </div>
+    </div>
+    <div class="top-heading-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Share hashtag cases with your friends &amp; followers</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="top-para">
+                    #mycase is a great way to spotlight a hashtag for a brand or group, Drive brand awareness or earn a 25% affiliate
+                    commision by simply creating and sharing your branded page.
+                </p>
+            </div>
+        </div>
+    </div>
+<div id="first-panel">
+    <div class="subheading">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>1. design your case</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="group-container-1">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-8 col-md-9 left-col">
+                    <div class="form-group bg-color">
+                        <label>choose background color</label>
+                        <div id="bg-color-picker" class="form-control color-picker">
+                            <span class="input-group-addon"><i></i> <i class="glyphicon glyphicon-chevron-down"></i></span>
+                        </div>
+                        <input type="hidden" id="bg-color-value" value="#ffffff" />
+                    </div>
+                    <div class="form-group upload-logo">
+                        <label>upload a logo</label>
+                        <div class="logo-btn">
+                            <span>Upload</span>
+                            <input type="file" value="Upload" id="fileupload" accept="image/*" />
+                        </div>
+                    </div>
+                    <div class="form-group uploaded-logos-container">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control input-lg" id="hashtagfield" placeholder="speak your mind..."></textarea>
+                        <input type="hidden" id="original_text" />
+                        <div class="hash-text">
+                            <label>
+                                <input type="radio" name="converttext" id="plain-text" data-converttext="plain-text" class="convert-text" checked />
+                                <span>Plain text</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="converttext" id="hash-text" data-converttext="hash-text" class="convert-text" />
+                                <span>Hashtag it</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group continue">
+                        <p>purchasers will pay $28 (free shipping)</p>
+                        <button type="button" class="create-case" id="js-create-case">continue</button>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-md-3 case-col">
+                    <div id="containment" class="containment">
+                        <img src="/images/hash-tag-case.png" width="220" height="440" alt="Case" class="img-responsive" id="case-body" />
+                        <p id="hashtagtext" class="para-3">#typeyour<br />hashtag<br />here</p>
+                        <p id="hashsign" class="hashsign">#</p>
+                        <div id="hashtagimgdiv" class="hashimg">
+                            <img id="hashtagimg"  src="" style="width:100%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="second-panel">
+    <div class="subheading subheading-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>2. design your landing page</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="group-container-2">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-7 left-col">
+
+                    <div class="form-group">
+                        <label>name your campaign</label>
+                        <input type="text" class="form-control" id="landing-page-heading"/>
+                    </div>
+
+                    <div class="form-group bg-color">
+                        <label>choose background color</label>
+                        <div id="bg-page-color-picker" class="form-control color-picker">
+                            <span class="input-group-addon"><i></i> <i class="glyphicon glyphicon-chevron-down"></i></span>
+                        </div>
+                        <input type="hidden" id="bg-page-color-value" value="#ffffff" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>add landing page text</label>
+                        <textarea class="form-control input-lg" rows="7" id="landing-page-details"></textarea>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-5 case-col">
+                    <div class="browser-frame">
+                        <div id="containment" class="containment">
+                            <img src="/images/hash-tag-case.png" width="220" height="440" alt="Case" class="img-responsive" id="landing-case-body" />
+                        </div>
+                    </div>
+                    <div class="preview-page">
+                        <p>this is how your page will look. <a href="#!">preview</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="group-container-3" style="display:none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Commission is 25% and can be paid weekly, donated to charity, or exchanged for credits to give discounts or free items to customers.</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 donation">
+                    <label>donate a percentage to charity?</label>
+                    <div>
+                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" />
+                        <button type="button" class="choose">choose</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 paypal">
+                    <label>paypal email address</label>
+                    <div>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="group-container-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>you can publish, share and view stats on the next page</p>
+                    <button type="button" class="generate-page" id="create-landing-page">generate your landing page</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-1 col-lg-offset-0 col-lg-5 subscribe">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label class="control-label">Discounts, fun stuff? Yes please!</label>
+                            <input type="email" class="form-control" placeholder="Enter your email address" required id="subscribe-email" />
+                            <button type="submit" id="subscribe">Subscribe</button>
+                        </div>
+                    </form>
+                    <ul class="nav nav-pills">
+                        <li><span>We gladly accept</span></li>
+                        <li><a href="#!"><img src="/images/discover.png" width="50" height="31" alt="Discover" class="img-responsive" /></a></li>
+                        <li><a href="#!"><img src="/images/master-card.png" width="50" height="32" alt="Master Card" class="img-responsive" /></a></li>
+                        <li><a href="#!"><img src="/images/american-express.png" width="50" height="31" alt="American Express" class="img-responsive" /></a></li>
+                        <li><a href="#!"><img src="/images/visa.png" width="50" height="31" alt="Visa" class="img-responsive" /></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3 col-sm-offset-1 col-md-offset-0 col-md-2 col-lg-2 site-menu">
+                    <ul class="nav nav-stacked">
+                        <li class="active"><a href="#!">Create my case</a></li>
+                        <li><a href="#!">About</a></li>
+                        <li><a href="#!">Help</a></li>
+                        <li><a href="#!">My Account</a></li>
+                        <li><a href="#!">Build your #mycase page</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3 col-md-offset-0 col-md-2 col-lg-2 site-menu site-menu-2">
+                    <ul class="nav nav-stacked">
+                        <li><a href="#!">Send a case</a></li>
+                        <li><a href="#!">Gift cards</a></li>
+                        <li><a href="#!">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-5 col-md-11 col-md-offset-1 col-lg-offset-0 col-lg-3">
+                    <ul class="nav nav-pills social-media-menu">
+                        <li><span>follow us</span></li>
+                        <li><a href="#!" target="_blank"><img src="/images/facebook.png" width="11" height="24" alt="Facebook" class="img-responsive" /></a></li>
+                        <li><a href="#!" target="_blank"><img src="/images/twitter.png" width="27" height="22" alt="Twitter" class="img-responsive" /></a></li>
+                        <li><a href="#!" target="_blank"><img src="/images/google-plus.png" width="14" height="22" alt="Google Plus" class="img-responsive" /></a></li>
+                    </ul>
+                    <ul class="nav nav-stacked privacy-menu">
+                        <li><a href="#!">Privacy</a></li>
+                        <li><a href="#!">Terms and Conditions</a></li>
+                        <li><a href="index.html">Hashtagmycase. All Rights Reserved 2015</a></li>
+                        <li><a href="#!">Need immediate help? <br /> Give us a call <span>(303) 551-0628</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+    })
+    @html.block("scripts", function(model){
+        <script src="/js/controllers/case-design-controller.js"></script>
+   })
+})

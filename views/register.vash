@@ -1,0 +1,93 @@
+@html.extend('../views/layout.vash',function(model){
+    @html.block("style", function(model){
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/lib/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="/css/login.css">
+    })
+    @html.block("body",function(model){
+    <body>
+    <header class="login navbar-fixed-top">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html"><img src="/images/mycase.png" alt="my case"></a>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+
+                <div class="register-info-wraper">
+                    <div id="register-info">
+
+                        <h1>You are about 30 seconds away from using this awesome app. Good choice!</h1>
+
+                        <ul dir="rtl">
+                            <li>That's why this app is so awesome</li>
+                            <li>!So register, like, right NOW</li>
+                            <li>Or don't, who cares</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-6">
+                <div id="register-wraper" class="signup-form-container">
+                    <h2>Register</h2>
+                    <form id="register-form" class="form" role="form" method="post">
+                        <div class="form-group">
+                            <label for="email" class="control-label">E-mail</label>
+                            <input name="username" class="form-control" type="text" id="email-address">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">Password</label>
+                            <input name="password" class="form-control" type="password" id="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password" class="control-label">Retype Password</label>
+                            <input name="confirm-password" class="form-control" type="password" id="confirm-pasword">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">
+                                <input type="checkbox" name="agreement" id="inlineCheckbox1" value="option1" data-error="Please accept our terms">
+                                <span>
+                                    I agree to something I will never read
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="form-group signup-btn">
+                            <button type="submit" class="btn btn-success">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="login navbar-fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>Alread have an account? <a href="/login">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+})
+    @html.block("scripts", function(model){
+        <script src="/js/controllers/register-controller.js"></script>
+   })
+})

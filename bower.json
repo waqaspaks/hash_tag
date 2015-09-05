@@ -1,0 +1,42 @@
+{
+  "name": "hashtag",
+  "version": "0.0.1",
+  "authors": [
+    "waqaspaks <waqas.paks@gmail.com>"
+  ],
+  "description": "create the cases of the mobiles by your own hashes and sale it on the shopify",
+  "main": "node ./bin/www",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "hashtag",
+    "hash",
+    "tag",
+    "cases",
+    "mobile"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "html2canvas": "~0.4.1",
+    "jquery-file-upload": "~9.11.0",
+    "jquery-ui": "~1.11.4",
+    "jquery-ui-touch-punch": "*",
+    "jquery-validation": "~1.14.0",
+    "jqueryui": "~1.11.4",
+    "jStorage": "https://github.com/andris9/jStorage.git#~0.4.12",
+    "mjolnic-bootstrap-colorpicker": "~2.3.0",
+    "modernizr": "~2.8.3",
+    "validator-js": "~4.0.5"
+  }
+}

@@ -1,0 +1,19 @@
+@html.extend('../views/layout.vash',function(model){
+
+  @html.block("style", function(model){
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/lib/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    })
+
+  @html.block("body",function(model){
+  <h1>@model.message</h1>
+  <h4>@model.error.status</h4>
+  <p>@model.error.stack</p>
+})
+
+ @html.block("scripts", function(model){
+
+ })
+})

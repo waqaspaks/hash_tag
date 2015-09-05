@@ -1,0 +1,375 @@
+.static {
+    position: static;
+}
+header .navbar-default {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+}
+header .navbar-default .container-fluid {
+    padding: 0;
+}
+header .navbar-default .navbar-brand {
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+div.top-heading-container {
+    background-color: #000;
+    color: #fff;
+    margin: 100px 0 20px;
+    padding: 10px 0 10px 87px;
+    width: 74%;
+}
+div.login-form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+div.login-form-container h1 {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: #333333;
+    -webkit-font-smoothing: subpixel-antialiased;
+    margin: 0 0 30px;
+    border-bottom: solid 1px #ccc;
+    padding-bottom: 30px;
+    padding-top: 15px;
+    text-align: center;
+}
+div.login-form-container .control-label {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 300;
+    color: #333333;
+    font-size: 18px;
+}
+div.login-form-container .login-btn {
+    border-top: solid 1px #ccc;
+    padding-top: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+div.login-form-container .login-btn .btn {
+    padding: 10px 50px;
+    font-size: 18px;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 300;
+}
+div.register-info-wraper {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    margin-top: 130px;
+}
+div.register-info-wraper h1 {
+    font-size: 42px;
+    font-family: "PT Sans", Arial, Helvetica, sans-serif;
+    line-height: 55px;
+    font-weight: 700;
+    text-align: right;
+    padding-bottom: 50px;
+    color: white;
+}
+div.register-info-wraper ul {
+    text-align: right;
+    color: white;
+    font-size: 24px;
+    font-family: "PT Sans", Arial, Helvetica, sans-serif;
+}
+div.register-info-wraper ul li {
+    margin-bottom: 25px;
+}
+div.signup-form-container {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 130px;
+}
+div.signup-form-container h2 {
+    margin: 0 0 15px;
+    text-align: center;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: #333333;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+div.signup-form-container .form-group {
+    margin-bottom: 12px;
+}
+div.signup-form-container .form-group.names {
+    padding-bottom: 65px;
+}
+div.signup-form-container .has-feedback label ~ .form-control-feedback {
+    top: 29px;
+}
+div.signup-form-container .form-group.username.has-feedback label ~ .form-control-feedback {
+    top: 51px;
+}
+div.signup-form-container .first-name {
+    padding-left: 0;
+    margin-bottom: 12px;
+    padding-right: 0;
+}
+div.signup-form-container .last-name {
+    padding-right: 0;
+    margin-bottom: 12px;
+}
+div.signup-form-container .control-label {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 300;
+    color: #333333;
+    font-size: 18px;
+}
+div.signup-form-container .signup-btn {
+    text-align: center;
+}
+div.signup-form-container .signup-btn .btn {
+    padding: 10px 50px;
+    font-size: 18px;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 300;
+}
+div.top-bar {
+    background-color: #23b7e5;
+    padding: 15px 10px;
+}
+div.top-bar .logo {
+    padding: 25px 15px;
+}
+div.top-bar ul {
+    margin-top: 5px;
+    float: right;
+}
+div.top-bar ul li a {
+    color: #fff;
+    font-size: 16px;
+    border-radius: 0;
+}
+div.top-bar a:hover,
+div.top-bar a:focus,
+div.top-bar a:active {
+    outline: 0;
+    background-color: #1C92B7;
+}
+div.left-nav {
+    background-color: #fff;
+    height: 100vh;
+    width: 225px;
+    border-right: solid 1px #ccc;
+    padding: 0;
+    margin-left: -15px;
+}
+div.left-nav div.user-info {
+    margin-top: 25px;
+}
+div.left-nav div.user-info img {
+    margin: 0 auto;
+    border-radius: 50%;
+}
+div.left-nav div.user-info p {
+    color: #515253;
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 400;
+}
+div.left-nav ul {
+    margin-left: 15px;
+    margin-top: 40px;
+}
+div.left-nav ul li a {
+    color: #515253;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 400;
+    padding-left: 10px;
+}
+div.left-nav .nav > li > a:focus,
+div.left-nav .nav > li > a:hover,
+div.left-nav .nav > li.active a {
+    text-decoration: none;
+    background-color: #eee;
+}
+div.left-nav ul li a span {
+    margin-right: 15px;
+}
+div.main-section {
+    position: relative;
+    background-color: #f5f7fa;
+    height: 100vh;
+    padding: 0;
+    margin-left: 210px;
+}
+div.main-section div.heading {
+    background-color: #fafbfc;
+    border-bottom: 1px solid #cfdbe2;
+    padding: 20px 15px;
+}
+div.main-section h1 {
+    margin: 0;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 300;
+}
+div.main-section div.dashboard-wrapper {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 64px;
+}
+div.main-section div.dashboard-wrapper table {
+    margin-bottom: 0;
+}
+div.main-section div.dashboard-wrapper .table-hover > tbody > tr:hover {
+    background-color: #f9f9f9;
+}
+div.main-section div.dashboard-wrapper table tr th {
+    vertical-align: middle;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 400;
+}
+div.main-section div.dashboard-wrapper table tr td {
+    vertical-align: middle;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 300;
+}
+div.main-section div.dashboard-wrapper table tr td a {
+    color: #23b7e5;
+}
+div.main-section div.dashboard-wrapper table tr td button {
+    background-color: transparent;
+    border: none;
+}
+div.main-section div.dashboard-wrapper table tr td button span {
+    font-size: 25px;
+}
+div.custom-modal div.modal-header {
+    background-color: #23b7e5;
+    border-radius: 6px 6px 0 0;
+    color: #fff;
+}
+div.custom-modal div.modal-header h2 {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 300;
+}
+div.custom-modal .control-label {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 400;
+}
+div.custom-modal .btn {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 400;
+    padding: 12px 30px;
+    font-size: 16px;
+}
+footer.login {
+    background-color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+footer.login p {
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 300;
+}
+footer.login p a {
+    padding: 5px 20px;
+    background-color: #222222;
+    color: white;
+    text-shadow: none;
+    border-radius: 4px;
+}
+footer.login p a:hover,
+footer.login p a:active,
+footer.login p a:focus {
+    background: #333333;
+    color: white;
+    outline: 0;
+    text-decoration: none;
+}
+@media screen and (min-width:320px) and (max-width:767px) {
+    header.login {
+        position: relative;
+    }
+    div.login-form-container {
+        width: 100%;
+        position: relative;
+        left: 0;
+        top: 0;
+        -moz-transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0, 0);
+        margin: 30px auto 50px;
+    }
+    footer.login {
+        position: relative;
+    }
+    div.register-info-wraper {
+        margin-top: 50px;
+    }
+    div.register-info-wraper h1 {
+        font-size: 26px;
+        line-height: 38px;
+    }
+    div.register-info-wraper ul {
+        font-size: 18px;
+    }
+    div.signup-form-container {
+        margin: 50px auto;
+    }
+    div.signup-form-container .form-group:nth-child(1) {
+        padding-bottom: 0;
+    }
+    div.signup-form-container .first-name {
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 12px;
+    }
+    div.signup-form-container .last-name {
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 12px;
+    }
+}
+@media screen and (min-width:768px) and (max-width:990px) {
+    header.login {
+        position: relative;
+    }
+    footer.login {
+        position: relative;
+    }
+    div.register-info-wraper {
+        margin: 50px 0;
+    }
+    div.register-info-wraper h1 {
+        font-size: 36px;
+    }
+    div.signup-form-container {
+        margin-top: 50px;
+    }
+}
+@media screen and (min-width:991px) and (max-width:1199px) {
+    header.login {
+        position: relative;
+    }
+    footer.login {
+        position: relative;
+    }
+    div.register-info-wraper {
+        margin: 50px 0;
+    }
+    div.signup-form-container {
+        margin-top: 50px;
+    }
+}

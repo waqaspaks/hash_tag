@@ -1,0 +1,159 @@
+@html.extend('../views/layout.vash',function(model){
+    @html.block("style", function(model){
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/lib/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="/lib/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/loader.css">
+    })
+    @html.block("body",function(model){
+
+<body>
+
+        <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html"><img src="/images/mycase.png" width="355" height="88" alt="Hash tag my case" class="img-responsive" /></a>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div class="home-container-1">
+        <div class="container">
+            <div class="row throbber-loader" id="case-loader">
+                    Loading…
+            </div>
+            <div class="row case-container">
+
+                <div class="col-sm-4 col-md-3 case-col">
+
+                    <div id="containment" class="containment">
+                        <img src="/images/hash-tag-case_black.png" width="220" height="445" alt="Case" class="img-responsive" id="case-body" />
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-9 left-col">
+                    <p class="para-1" id="case-heading">###</p>
+                    <h1 id="case-description">###</h1>
+                    <div class="form-group">
+                        <p class="para-2">total $28.00 (free shipping)</p>
+                        <button type="button" class="create-case js-goto-product" id="goto-product-page" data-collection="" data-shop_name="" data-productid="">purchase my case</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="para-4">
+                        <img src="/images/security.png" width="161" height="40" alt="Security" class="img-responsive" />
+                        share with friends and get your case free + hand crafted in the usa + ships in 3-5 days
+                    </p>
+                </div>
+            </div>
+        </div>
+        <img src="/images/slim-case.png" width="142" height="191" alt="Slim Case" class="img-responsive slim-case" />
+        <img src="/images/brand-logo.png" width="162" height="50" alt="Samsung, Apple" class="img-responsive brand-logo" />
+    </div>
+
+    <div class="home-container-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>cases on the #gram</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="home-container-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2><span>cases #trending today</span></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="home-container-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12"><h3>choose your case, color, and hashtag</h3></div>
+            </div>
+            <div class="row throbber-loader" id="random-case-loader">
+               Loading…
+            </div>
+            <div class="row" id="js-random-products">
+
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-1 col-lg-offset-0 col-lg-5 subscribe">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label class="control-label">Discounts, fun stuff? Yes please!</label>
+                            <input type="email" class="form-control" placeholder="Enter your email address" required id="subscribe-email" />
+                            <button type="submit" id="subscribe">Subscribe</button>
+                        </div>
+                    </form>
+                    <ul class="nav nav-pills">
+                        <li><span>We gladly accept</span></li>
+                        <li><a href="#!"><img src="/images/discover.png" width="50" height="31" alt="Discover" class="img-responsive" /></a></li>
+                        <li><a href="#!"><img src="/images/master-card.png" width="50" height="32" alt="Master Card" class="img-responsive" /></a></li>
+                        <li><a href="#!"><img src="/images/american-express.png" width="50" height="31" alt="American Express" class="img-responsive" /></a></li>
+                        <li><a href="#!"><img src="/images/visa.png" width="50" height="31" alt="Visa" class="img-responsive" /></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3 col-sm-offset-1 col-md-offset-0 col-md-2 col-lg-2 site-menu">
+                    <ul class="nav nav-stacked">
+                        <li class="active"><a href="#!">Create my case</a></li>
+                        <li><a href="#!">About</a></li>
+                        <li><a href="#!">Help</a></li>
+                        <li><a href="#!">My Account</a></li>
+                        <li><a href="#!">Build your #mycase page</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3 col-md-offset-0 col-md-2 col-lg-2 site-menu site-menu-2">
+                    <ul class="nav nav-stacked">
+                        <li><a href="#!">Send a case</a></li>
+                        <li><a href="#!">Gift cards</a></li>
+                        <li><a href="#!">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-5 col-md-11 col-md-offset-1 col-lg-offset-0 col-lg-3">
+                    <ul class="nav nav-pills social-media-menu">
+                        <li><span>follow us</span></li>
+                        <li><a href="#!" target="_blank"><img src="/images/facebook.png" width="11" height="24" alt="Facebook" class="img-responsive" /></a></li>
+                        <li><a href="#!" target="_blank"><img src="/images/twitter.png" width="27" height="22" alt="Twitter" class="img-responsive" /></a></li>
+                        <li><a href="#!" target="_blank"><img src="/images/google-plus.png" width="14" height="22" alt="Google Plus" class="img-responsive" /></a></li>
+                    </ul>
+                    <ul class="nav nav-stacked privacy-menu">
+                        <li><a href="#!">Privacy</a></li>
+                        <li><a href="#!">Terms and Conditions</a></li>
+                        <li><a href="index.html">Hashtagmycase. All Rights Reserved 2015</a></li>
+                        <li><a href="#!">Need immediate help? <br /> Give us a call <span>(303) 551-0628</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+})
+    @html.block("scripts", function(model){
+        <script src="/js/controllers/affiliate-controller.js"></script>
+   })
+})
