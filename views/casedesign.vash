@@ -187,9 +187,7 @@
                             <img src="/images/hash-tag-case.png" width="220" height="440" alt="Case" class="img-responsive" id="landing-case-body" />
                         </div>
                     </div>
-                    <div class="preview-page">
-                        <p>this is how your page will look. <a href="#!">preview</a></p>
-                    </div>
+                    
                 </div>
             </div>
 
