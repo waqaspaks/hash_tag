@@ -48,6 +48,28 @@ passport.deserializeUser(Account.deserializeUser());
 // mongoose
 mongoose.connect('mongodb://localhost:27017/hashtag_mongo_db');
 
+///////////////////////////////////////////
+passport.use('loginUser', new LocalStrategy(
+
+  function(username, password, done) {
+
+
+
+    Account.findOne({ username: username, password: password }, function(err, user)  {
+
+      if (err) { return done(err); }
+
+      if (!user) {
+
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+
+
+      return done(null, user, {message: "invalid login"}); //<- error problem
+    });
+  }
+));
+///////////////////////////////////////////
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

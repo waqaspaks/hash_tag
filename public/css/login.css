@@ -67,6 +67,12 @@ div.login-form-container .login-btn .btn {
     font-family: 'Lato', Helvetica, sans-serif;
     font-weight: 300;
 }
+div.login-form-container .login-form .errMessage {
+    color: darkorange;
+    font-size: 18px;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 300;
+}
 div.register-info-wraper {
     background: rgba(0, 0, 0, 0.2);
     padding: 25px;
@@ -103,6 +109,12 @@ div.signup-form-container h2 {
     font-weight: 300;
     color: #333333;
     -webkit-font-smoothing: subpixel-antialiased;
+}
+div.signup-form-container .errMessage {
+    color: darkorange;
+    font-size: 18px;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 300;
 }
 div.signup-form-container .form-group {
     margin-bottom: 12px;

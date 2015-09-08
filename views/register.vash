@@ -43,6 +43,9 @@
                 <div id="register-wraper" class="signup-form-container">
                     <h2>Register</h2>
                     <form id="register-form" class="form" role="form" method="post">
+                    <div class="errorMessage">
+                    <span class="errMessage">@model.errorMessage</span>
+                    </div>
                         <div class="form-group">
                             <label for="email" class="control-label">E-mail</label>
                             <input name="username" class="form-control" type="text" id="email-address">
@@ -72,7 +75,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 

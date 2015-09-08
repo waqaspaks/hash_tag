@@ -28,6 +28,8 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
         <header>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -56,7 +58,7 @@
                     <p class="para-1" id="case-heading">###</p>
                     <h1 id="case-description">###</h1>
                     <div class="form-group">
-                        <p class="para-2">total $28.00 (free shipping)</p>
+                        <p class="para-2" id="case-price">total $28.00 (free shipping)</p>
                         <button type="button" class="create-case js-goto-product" id="goto-product-page" data-collection="" data-shop_name="" data-productid="">purchase my case</button>
                     </div>
                 </div>
@@ -171,6 +173,7 @@
 
 })
     @html.block("scripts", function(model){
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
         <script src="/js/controllers/affiliate-controller.js"></script>
    })
 })

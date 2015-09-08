@@ -24,6 +24,7 @@ $(document).ready(function() {
       }
     },
     submitHandler: function(form) {
+        $(".errMessage").html('');
       form.submit();
       var _username = $("#username").val();
       var _password = $("#password").val();

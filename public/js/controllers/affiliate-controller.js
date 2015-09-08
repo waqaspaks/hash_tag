@@ -119,12 +119,14 @@ function getProducts() {
                     '">#addtocart</button>\n\
             <div class="btn-group" role="group" aria-label="Share Product">\n\
 <a href="javascript:void(0)" class="btn btn-default share-facebook" data-href="http://' + res.shop_name + '/collections/' + res.collection.handle + '/products/' + item.handle + '"><img src="/images/fb-cart.png" width="13" height="26" alt="Share on Facebook" class="img-responsive" /></a>\n\
-                            </div>\n\
+<a href="https://twitter.com/share" class="btn btn-default twitter-share-button" data-url="http://' + res.shop_name + '/collections/' + res.collection.handle + '/products/' + item.handle + '"><img src="/images/twitter-cart.png" width="32" height="26" alt="Share on Twitter" class="img-responsive" data-count="none"/></a>\n\
+</div>\n\
 <span class="friend-share">share with friends</span>\n\
                         </div>\n\
                     </div>\n\
                 </div>'
                 );
+                twttr.widgets.load();
             }
             $("#random-case-loader").fadeOut();
             $("#js-random-products").fadeIn();

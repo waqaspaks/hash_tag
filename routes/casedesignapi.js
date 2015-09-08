@@ -141,7 +141,7 @@ router.post("/api/uploadShopifyProduct", function(req, res) {
           "product_type": req.body.product_type,
           "published": true,
           "variants": [{
-            "option1": "First",
+            "option1": "case_price",
             "price": "28.00",
             "requires_shipping": true,
             taxable: false,

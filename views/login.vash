@@ -27,6 +27,9 @@
                 <div class="login-form-container">
                     <h1>Sign in</h1>
                     <form id="login-form" class="form login-form" role="form" method="post">
+                    <div class="errorMessage">
+                    <span class="errMessage">@model.errMessage</span>
+                    </div>
                         <div class="form-group">
                             <label for="username" class="control-label">Username</label>
                             <input name="username" class="form-control" type="text" id="username">
