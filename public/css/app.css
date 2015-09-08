@@ -619,6 +619,13 @@ div.home-container-4 div.product div.product-share a.friend-share {
     font-weight: bold;
     margin: 15px auto 70px;
 }
+div.home-container-4 div.product div.product-share span.friend-share {
+    color: #4d8469;
+    font-family: helvetica-bold;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 15px auto 70px;
+}
 div.checkout-container-1 {
     margin: 80px 0;
 }
