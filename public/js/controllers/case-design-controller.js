@@ -1,6 +1,6 @@
 $(document).ready(function() {
   localStorage.removeItem('logos');
-  var username = getUserInfo();
+  var username = $("#hdn-username").val();
   //console.log(getUserInfo());
   //$("#logout-user").html(username);
   //get the email address, token and shop name
