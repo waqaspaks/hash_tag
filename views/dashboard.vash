@@ -121,18 +121,12 @@
                                             <td>4566</td>
                                             <td>93%</td>
                                             <td class="no-padding"><a href="#" class="round-btn"><i class="glyphicon glyphicon-pencil"></i></a></td>
-                                            <td class="no-padding"><a href="#" class="round-btn"><i class="glyphicon glyphicon-link"></i></a></td>
+                                            <td class="no-padding"><a href="/affiliate?pid=@item.productId" class="round-btn"><i class="glyphicon glyphicon-link"></i></a></td>
                                             <td class="no-padding"><a href="#" class="round-btn"><i class="fa fa-share"></i></a></td>
                                         </tr>
                                         })
                                     </tbody>
                                 </table>
-                            </div>
-
-                            <div class="text-right text-uppercase">
-
-                                <a href="#" class="link">See All</a>
-
                             </div>
                         </div>
                     </div>
@@ -141,42 +135,9 @@
             </article>
             <!--  \ contents box / -->
 
-            <!--  / update box \ -->
-            <article class="updateBox">
-                <div class="container">
-
-                    <h2>latest products <small><a href="#">(see all)</a></small></h2>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            <img src="images/small-pic.jpg" alt="">
-                            Product name  Description goes here:
-                            <a href="#" class="btn btn-warning pull-right">Generate landing page</a>
-                        </li>
-                        <li>
-                            <img src="images/small-pic.jpg" alt="">
-                            Product name  Description goes here:
-                            <a href="#" class="btn btn-warning pull-right">Generate landing page</a>
-                        </li>
-                        <li>
-                            <img src="images/small-pic.jpg" alt="">
-                            Product name  Description goes here:
-                            <a href="#" class="btn btn-warning pull-right">Generate landing page</a>
-                        </li>
-                        <li>
-                            <img src="images/small-pic.jpg" alt="">
-                            Product name  Description goes here:
-                            <a href="#" class="btn btn-warning pull-right">Generate landing page</a>
-                        </li>
-                    </ul>
-
-                </div>
-            </article>
-            <!--  \ update box / -->
-
         </section>
         <!--  \ content container / -->
-        @model.products
+
     </body>
 
 

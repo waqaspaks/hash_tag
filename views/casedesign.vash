@@ -30,6 +30,8 @@
                     }
                     else
                     {
+                    <li><a href="/dashboard" class="bold active">Dashboard</a></li>
+                    <li><a href="/casedesign" class="bold">Case Design</a></li>
                       <li><a href="javascript:void(0)" class="bold" id="logout-user">@model.user.username.split('@')[0] (logout)</a></li>
                     }
                         </ul>
@@ -290,7 +292,7 @@
             </div>
         </div>
     </footer>
-    <input type="hidden" id="hdn-username" value="@model.user"/>
+    <input type="hidden" id="hdn-username" value="@model.user.username"/>
 </body>
     })
     @html.block("scripts", function(model){

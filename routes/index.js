@@ -111,6 +111,7 @@ router.get('/casedesign', isLogined.ensureLoggedIn(), function (req, res) {
 
 router.get('/affiliate', function (req, res) {
     res.render('affiliate', {
+         user: req.user,
         title: '#mycase'
     });
 });
