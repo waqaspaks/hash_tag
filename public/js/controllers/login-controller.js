@@ -33,7 +33,7 @@ $(document).ready(function() {
         password: _password
       };
       var dataReq = JSON.stringify(dataReqRaw);
-      console.log(dataReq);
+      //console.log(dataReq);
       /*$.ajax({
           type: "POST",
           url: "/api/loginUser",

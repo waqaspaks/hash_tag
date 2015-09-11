@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    setTimeout(function () {
+        $("#js-loader").fadeOut();
+    }, 3000);
+
     localStorage.removeItem('logos');
     var username = $("#hdn-username").val();
     //console.log(getUserInfo());

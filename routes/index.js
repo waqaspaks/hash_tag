@@ -31,7 +31,7 @@ router.get('/', isLogined.ensureLoggedIn(), function (req, res) {
 
 
 router.get('/dashboard', isLogined.ensureLoggedIn(), function (req, res) {
-    console.log(req.user);
+    console.log(req.user.username);
     Products.find({
         userEmail: req.user.username
     }, function (prodErr, prodRes) {
