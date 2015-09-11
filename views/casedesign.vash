@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/lib/jquery-ui/themes/base/jquery-ui.min.css">
     <link rel="stylesheet" href="/lib/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/loader.css">
     })
     @html.block("body",function(model){
         <body>
@@ -41,23 +42,8 @@
         </nav>
     </header>
     <div id="js-loader" class="loader">
-        <div class="floating-bars">
-            <div class="blockG" id="rotateG_01">
-            </div>
-            <div class="blockG" id="rotateG_02">
-            </div>
-            <div class="blockG" id="rotateG_03">
-            </div>
-            <div class="blockG" id="rotateG_04">
-            </div>
-            <div class="blockG" id="rotateG_05">
-            </div>
-            <div class="blockG" id="rotateG_06">
-            </div>
-            <div class="blockG" id="rotateG_07">
-            </div>
-            <div class="blockG" id="rotateG_08">
-            </div>
+        <div class="progress">
+           <div class="indeterminate"></div>
         </div>
     </div>
     <div class="top-heading-container">

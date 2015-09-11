@@ -1,5 +1,6 @@
 var express = require('express');
 var passport = require('passport');
+var http = require('http');
 var isLogined = require('connect-ensure-login');
 //users model
 var Users = require("../models/account.js");
@@ -11,7 +12,7 @@ var Products = require("../models/products.js");
 var shopifModal = require("../models/shopify.js");
 var router = express.Router();
 
-
+//main root
 router.get('/', isLogined.ensureLoggedIn(), function (req, res) {
     console.log(req.user.username);
     Products.find({
@@ -26,7 +27,6 @@ router.get('/', isLogined.ensureLoggedIn(), function (req, res) {
             products: prodRes
         });
     });
-
 });
 
 
@@ -111,7 +111,7 @@ router.get('/casedesign', isLogined.ensureLoggedIn(), function (req, res) {
 
 router.get('/affiliate', function (req, res) {
     res.render('affiliate', {
-         user: req.user,
+        user: req.user,
         title: '#mycase'
     });
 });

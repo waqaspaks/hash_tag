@@ -360,12 +360,18 @@ router.post("/api/getProductbyProductId", function (req, res) {
                                         productId: _productid
                                     }, function (prodErr, prodRes) {
                                         if (prodErr) {} else if (prodRes == null) {} else {
-                                            return res.status(201).send({
-                                                product: data.product,
-                                                shop_name: shopRes.shop_name,
-                                                collection: ccData.custom_collection,
-                                                prodcolor: prodRes.langingPageBgColor
+                                            prodRes.total_viewed = prodRes.total_viewed + 1;
+                                            prodRes.save(function (retErr) {
+                                                if (retErr) {} else {
+                                                    return res.status(201).send({
+                                                        product: data.product,
+                                                        shop_name: shopRes.shop_name,
+                                                        collection: ccData.custom_collection,
+                                                        prodcolor: prodRes.langingPageBgColor
+                                                    }); /////////////////////
+                                                }
                                             });
+
                                         }
                                     });
                                 }
@@ -425,4 +431,59 @@ router.post("/api/getShopifyProduct", function (req, res) {
 
 });
 //end affiliate page apis
+
+router.post("/api/getShopifyOrders", function (req, res) {
+    shopifModal.findOne({
+        'isCurrent': true
+    }, function (shopErr, shopRes) {
+        if (shopErr) {} else {
+            shopifyConfig.access_token = shopRes.access_token;
+            shopifyConfig.shop = shopRes.shop_name;
+            //console.log(config);
+            var Shopify = new shopifyAPI(shopifyConfig);
+            Shopify.get('/admin/orders.json?status=any', function (ordErr, ordRes, ordHeader) {
+                if (ordErr) {} else {
+                    console.log(ordRes);
+                    return res.status(201).send({
+                        orders: ordRes
+                    });
+                }
+            });
+        }
+    });
+});
+
+router.post("/api/deleteShopifyProduct", function (req, res) {
+    console.log(req.body.productId);
+    var _prodId = req.body.productId;
+    shopifModal.findOne({
+        'isCurrent': true
+    }, function (shopErr, shopRes) {
+        if (shopErr) {} else {
+            shopifyConfig.access_token = shopRes.access_token;
+            shopifyConfig.shop = shopRes.shop_name;
+            //console.log(config);
+            var Shopify = new shopifyAPI(shopifyConfig);
+            Shopify.delete('/admin/products/' + _prodId + '.json', function (prodErr, prodRes, prodHeader) {
+                if (prodErr) {} else {
+                    Products.findOne({
+                        productId: _prodId
+                    }, function (retErr, retRes) {
+                        if (retErr) {} else {
+                            retRes.isDeleted = true;
+                            retRes.save(function (delErr) {
+                                if (delErr) {} else {
+                                    return res.status(201).send({
+                                        deleted: true
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
 module.exports = router;
