@@ -1,67 +1,182 @@
 @-moz-keyframes throbber-loader {
-  0% {
-    background: #dde2e7;
-  }
-  10% {
-    background: #6b9dc8;
-  }
-  40% {
-    background: #dde2e7;
-  }
+    0% {
+        background: #dde2e7;
+    }
+    10% {
+        background: #6b9dc8;
+    }
+    40% {
+        background: #dde2e7;
+    }
 }
 @-webkit-keyframes throbber-loader {
-  0% {
-    background: #dde2e7;
-  }
-  10% {
-    background: #6b9dc8;
-  }
-  40% {
-    background: #dde2e7;
-  }
+    0% {
+        background: #dde2e7;
+    }
+    10% {
+        background: #6b9dc8;
+    }
+    40% {
+        background: #dde2e7;
+    }
 }
 @keyframes throbber-loader {
-  0% {
-    background: #dde2e7;
-  }
-  10% {
-    background: #6b9dc8;
-  }
-  40% {
-    background: #dde2e7;
-  }
+    0% {
+        background: #dde2e7;
+    }
+    10% {
+        background: #6b9dc8;
+    }
+    40% {
+        background: #dde2e7;
+    }
 }
+
 /* :not(:required) hides these rules from IE9 and below */
+
 .throbber-loader:not(:required) {
-  -moz-animation: throbber-loader 2000ms 300ms infinite ease-out;
-  -webkit-animation: throbber-loader 2000ms 300ms infinite ease-out;
-  animation: throbber-loader 2000ms 300ms infinite ease-out;
-  background: #dde2e7;
-  display: inline-block;
-  position: relative;
-  text-indent: -9999px;
-  width: 0.9em;
-  height: 1.5em;
-  margin: 0 1.6em;
+    -moz-animation: throbber-loader 2000ms 300ms infinite ease-out;
+    -webkit-animation: throbber-loader 2000ms 300ms infinite ease-out;
+    animation: throbber-loader 2000ms 300ms infinite ease-out;
+    background: #dde2e7;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 0.9em;
+    height: 1.5em;
+    margin: 0 1.6em;
 }
-.throbber-loader:not(:required):before, .throbber-loader:not(:required):after {
-  background: #dde2e7;
-  content: '\x200B';
-  display: inline-block;
-  width: 0.9em;
-  height: 1.5em;
-  position: absolute;
-  top: 0;
+.throbber-loader:not(:required):before,
+.throbber-loader:not(:required):after {
+    background: #dde2e7;
+    content: '\x200B';
+    display: inline-block;
+    width: 0.9em;
+    height: 1.5em;
+    position: absolute;
+    top: 0;
 }
 .throbber-loader:not(:required):before {
-  -moz-animation: throbber-loader 2000ms 150ms infinite ease-out;
-  -webkit-animation: throbber-loader 2000ms 150ms infinite ease-out;
-  animation: throbber-loader 2000ms 150ms infinite ease-out;
-  left: -1.6em;
+    -moz-animation: throbber-loader 2000ms 150ms infinite ease-out;
+    -webkit-animation: throbber-loader 2000ms 150ms infinite ease-out;
+    animation: throbber-loader 2000ms 150ms infinite ease-out;
+    left: -1.6em;
 }
 .throbber-loader:not(:required):after {
-  -moz-animation: throbber-loader 2000ms 450ms infinite ease-out;
-  -webkit-animation: throbber-loader 2000ms 450ms infinite ease-out;
-  animation: throbber-loader 2000ms 450ms infinite ease-out;
-  right: -1.6em;
+    -moz-animation: throbber-loader 2000ms 450ms infinite ease-out;
+    -webkit-animation: throbber-loader 2000ms 450ms infinite ease-out;
+    animation: throbber-loader 2000ms 450ms infinite ease-out;
+    right: -1.6em;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+/* Progress Bar */
+
+.progress {
+    height: 6px;
+    display: block;
+    width: 100%;
+    background-color: #D6FFEB;
+    border-radius: 0px;
+    background-clip: padding-box;
+    margin: 0.5rem 0 1rem 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    z-index: 11;
+}
+.progress .determinate {
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    bottom: 0;
+    background-color: #278CC9;
+    transition: width .3s linear;
+}
+.progress .indeterminate {
+    background-color: #278CC9;
+}
+.progress .indeterminate:before {
+    content: '';
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    will-change: left, right;
+    -webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+    animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+.progress .indeterminate:after {
+    content: '';
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    will-change: left, right;
+    -webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+    animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+    -webkit-animation-delay: 1.15s;
+    animation-delay: 1.15s;
+}
+@-webkit-keyframes indeterminate {
+    0% {
+        left: -35%;
+        right: 100%;
+    }
+    60% {
+        left: 100%;
+        right: -90%;
+    }
+    100% {
+        left: 100%;
+        right: -90%;
+    }
+}
+@keyframes indeterminate {
+    0% {
+        left: -35%;
+        right: 100%;
+    }
+    60% {
+        left: 100%;
+        right: -90%;
+    }
+    100% {
+        left: 100%;
+        right: -90%;
+    }
+}
+@-webkit-keyframes indeterminate-short {
+    0% {
+        left: -200%;
+        right: 100%;
+    }
+    60% {
+        left: 107%;
+        right: -8%;
+    }
+    100% {
+        left: 107%;
+        right: -8%;
+    }
+}
+@keyframes indeterminate-short {
+    0% {
+        left: -200%;
+        right: 100%;
+    }
+    60% {
+        left: 107%;
+        right: -8%;
+    }
+    100% {
+        left: 107%;
+        right: -8%;
+    }
 }

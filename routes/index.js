@@ -1,16 +1,52 @@
 var express = require('express');
 var passport = require('passport');
+var http = require('http');
 var isLogined = require('connect-ensure-login');
-var Account = require('../models/account');
+//users model
+var Users = require("../models/account.js");
+
+//products model
+var Products = require("../models/products.js");
+
+//shpify modal
+var shopifModal = require("../models/shopify.js");
 var router = express.Router();
 
-
+//main root
 router.get('/', isLogined.ensureLoggedIn(), function (req, res) {
-    res.render('casedesign', {
-        user: req.user,
-        title: '#mycase'
+    console.log(req.user.username);
+    Products.find({
+        userEmail: req.user.username
+    }, function (prodErr, prodRes) {
+        if (prodErr) {}
+        console.log("result for the products");
+        console.log(prodRes);
+        res.render('dashboard', {
+            user: req.user,
+            title: 'dashboard',
+            products: prodRes
+        });
     });
 });
+
+
+router.get('/dashboard', isLogined.ensureLoggedIn(), function (req, res) {
+    console.log(req.user.username);
+    Products.find({
+        userEmail: req.user.username
+    }, function (prodErr, prodRes) {
+        if (prodErr) {}
+        console.log("result for the products");
+        console.log(prodRes);
+        res.render('dashboard', {
+            user: req.user,
+            title: 'dashboard',
+            products: prodRes
+        });
+    })
+
+});
+
 
 router.get('/register', function (req, res) {
     res.render('register', {});
@@ -66,16 +102,16 @@ router.get('/logout', function (req, res) {
     res.redirect('/');
 });
 
-router.get('/casedesign', isLogined.ensureLoggedIn(),
-    function (req, res) {
-        res.render('casedesign', {
-            user: req.user,
-            title: '#mycase'
-        });
+router.get('/casedesign', isLogined.ensureLoggedIn(), function (req, res) {
+    res.render('casedesign', {
+        user: req.user,
+        title: '#mycase'
     });
+});
 
 router.get('/affiliate', function (req, res) {
     res.render('affiliate', {
+        user: req.user,
         title: '#mycase'
     });
 });

@@ -1,0 +1,151 @@
+@html.extend('../views/layout.vash',function(model){
+    @html.block("style", function(model){
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/lib/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="/lib/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/loader.css">
+    })
+    @html.block("body",function(model){
+    <body>
+
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="/images/mycase.png" width="355" height="88" alt="Hash tag my case" class="img-responsive" /></a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/dashboard" class="bold active">Dashboard</a></li>
+                    <li><a href="/casedesign" class="bold">Case Design</a></li>
+                    @if(!model.user){
+                      <li><a href="/login" class="bold" id="logout-user">login</a></li>
+                    }
+                    else
+                    {
+                      <li><a href="javascript:void(0)" class="bold" id="logout-user">@model.user.username.split('@')[0] (logout)</a></li>
+                    }
+                        </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div id="js-loader">
+        <div class="progress">
+           <div class="indeterminate"></div>
+        </div>
+    </div>
+
+    <!--  / content container \ -->
+        <section id="contentCntr">
+
+            <!--  / statistics box \ -->
+            <article class="statisticsBox text-uppercase">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="title medium-lg-font">[LP Test Shop]</span>
+                        </div>
+                        <div class="col-sm-3 text-center">
+                            <p><strong>Total store sales </strong></p>
+                            <span class="large-font" id="totalShopSale">$0</span>
+                        </div>
+                        <div class="col-sm-3 text-center">
+                            <p class="dark-color"><strong>Today's Total Sale </strong></p>
+                            <span class="large-font" id="totalTodaysSale">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!--  \ statistics box / -->
+
+            <!--  / contents box \ -->
+            <article class="contentsBox">
+                <div class="container">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#active-page" aria-controls="active-page" role="tab" data-toggle="tab">Your Products</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="active-page">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th class="dark-color">Version</th>
+                                            <th>views</th>
+                                            <th>sales</th>
+                                            <th>commission (20%)</th>
+                                            <th>Is Deleted</th>
+                                            <th class="text-center">Link</th>
+                                            <th class="text-center">Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="products-list">
+                                         @model.products.forEach(function(item){
+                                        <tr class="main-product-row">
+                                            <td><img src="@item.design_image" class="" style="height:30px;"/></td>
+                                            <td data-productId="@item.productId">@item.productName</td>
+                                            <td>@(item.total_viewed == 0 ? 0 : item.total_viewed)</td>
+                                            <td class="product-sales" data-productId="@item.productId">0</td>
+                                            <td class="product-sale-commission">$0</td>
+                                            <td>
+                                                @if(item.isDeleted)
+                                                {
+                                                    <span class="deleted-prod"><i class="glyphicon glyphicon-flag"></i></span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="deleted-prod"></span>
+                                                }
+                                            </td>
+                                            <td class="no-padding prod-Link" >
+                                                @if(!item.isDeleted)
+                                                {
+                                                   <a href="/affiliate?pid=@item.productId" target="_blank" class="round-btn"><i class="glyphicon glyphicon-link"></i></a>
+                                                }
+                                            </td>
+                                            <td class="no-padding prod-delete">
+                                                @if(!item.isDeleted)
+                                                {
+                                                   <a href="javascript:void(0)" data-productId="@item.productId" class="round-btn btn-delete-prod"><i class="glyphicon glyphicon-trash"></i></a>
+                                                }
+                                            </td>
+                                        </tr>
+                                        })
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+            <!--  \ contents box / -->
+
+        </section>
+        <!--  \ content container / -->
+
+    </body>
+
+
+     })
+    @html.block("scripts", function(model){
+        <script src="/js/controllers/dashboard-controller.js"></script>
+   })
+})

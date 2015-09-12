@@ -34,241 +34,33 @@
     font-family: machine-script;
     src: url("/fonts/MachineScript.ttf");
 }
+
+/*translusent screen when the page is busy*/
+
 .custom-overlay {
-    position: absolute; /* makes the div go into a position that’s absolute to the browser viewing area */
-    left: 0%; /* makes the div span all the way across the viewing area */
-    top: 0%; /* makes the div span all the way across the viewing area */
-    background-color: black;
-    -moz-opacity: 0.7; /* makes the div transparent, so you have a cool overlay effect */
-    opacity: .70;
-    filter: alpha(opacity=70);
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    z-index: 99999;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    /*dim the background*/
 }
 
-.loader {
-    width: 100%;
-    text-align: center;
-    position: fixed;
-    z-index: 99999999;
-    top: 36%;
-    left: 47%;
-    display: none;
+/*Loader for the saving the components*/
+
+
+/*Page design*/
+
+html,
+body {
+    min-height: 100%;
 }
-.floating-bars {
+body {
     position: relative;
-    width: 62px;
-    height: 77px;
+    background: #f5fafe;
 }
-
-.blockG {
-    position: absolute;
-    background-color: #1999ce;
-    width: 10px;
-    height: 24px;
-    -moz-border-radius: 8px 8px 0 0;
-    -moz-transform: scale(0.4);
-    -moz-animation-name: fadeG;
-    -moz-animation-duration: 1.1199999999999999s;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-direction: linear;
-    -webkit-border-radius: 8px 8px 0 0;
-    -webkit-transform: scale(0.4);
-    -webkit-animation-name: fadeG;
-    -webkit-animation-duration: 1.1199999999999999s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: linear;
-    -ms-border-radius: 8px 8px 0 0;
-    -ms-transform: scale(0.4);
-    -ms-animation-name: fadeG;
-    -ms-animation-duration: 1.1199999999999999s;
-    -ms-animation-iteration-count: infinite;
-    -ms-animation-direction: linear;
-    -o-border-radius: 8px 8px 0 0;
-    -o-transform: scale(0.4);
-    -o-animation-name: fadeG;
-    -o-animation-duration: 1.1199999999999999s;
-    -o-animation-iteration-count: infinite;
-    -o-animation-direction: linear;
-    border-radius: 8px 8px 0 0;
-    transform: scale(0.4);
-    animation-name: fadeG;
-    animation-duration: 1.1199999999999999s;
-    animation-iteration-count: infinite;
-    animation-direction: linear;
-}
-
-#rotateG_01 {
-    left: 0;
-    top: 28px;
-    -moz-animation-delay: 0.41999999999999993s;
-    -moz-transform: rotate(-90deg);
-    -webkit-animation-delay: 0.41999999999999993s;
-    -webkit-transform: rotate(-90deg);
-    -ms-animation-delay: 0.41999999999999993s;
-    -ms-transform: rotate(-90deg);
-    -o-animation-delay: 0.41999999999999993s;
-    -o-transform: rotate(-90deg);
-    animation-delay: 0.41999999999999993s;
-    transform: rotate(-90deg);
-}
-
-#rotateG_02 {
-    left: 8px;
-    top: 10px;
-    -moz-animation-delay: 0.5599999999999999s;
-    -moz-transform: rotate(-45deg);
-    -webkit-animation-delay: 0.5599999999999999s;
-    -webkit-transform: rotate(-45deg);
-    -ms-animation-delay: 0.5599999999999999s;
-    -ms-transform: rotate(-45deg);
-    -o-animation-delay: 0.5599999999999999s;
-    -o-transform: rotate(-45deg);
-    animation-delay: 0.5599999999999999s;
-    transform: rotate(-45deg);
-}
-
-#rotateG_03 {
-    left: 26px;
-    top: 3px;
-    -moz-animation-delay: 0.7s;
-    -moz-transform: rotate(0deg);
-    -webkit-animation-delay: 0.7s;
-    -webkit-transform: rotate(0deg);
-    -ms-animation-delay: 0.7s;
-    -ms-transform: rotate(0deg);
-    -o-animation-delay: 0.7s;
-    -o-transform: rotate(0deg);
-    animation-delay: 0.7s;
-    transform: rotate(0deg);
-}
-
-#rotateG_04 {
-    right: 8px;
-    top: 10px;
-    -moz-animation-delay: 0.8399999999999999s;
-    -moz-transform: rotate(45deg);
-    -webkit-animation-delay: 0.8399999999999999s;
-    -webkit-transform: rotate(45deg);
-    -ms-animation-delay: 0.8399999999999999s;
-    -ms-transform: rotate(45deg);
-    -o-animation-delay: 0.8399999999999999s;
-    -o-transform: rotate(45deg);
-    animation-delay: 0.8399999999999999s;
-    transform: rotate(45deg);
-}
-
-#rotateG_05 {
-    right: 0;
-    top: 28px;
-    -moz-animation-delay: 0.9799999999999999s;
-    -moz-transform: rotate(90deg);
-    -webkit-animation-delay: 0.9799999999999999s;
-    -webkit-transform: rotate(90deg);
-    -ms-animation-delay: 0.9799999999999999s;
-    -ms-transform: rotate(90deg);
-    -o-animation-delay: 0.9799999999999999s;
-    -o-transform: rotate(90deg);
-    animation-delay: 0.9799999999999999s;
-    transform: rotate(90deg);
-}
-
-#rotateG_06 {
-    right: 8px;
-    bottom: 7px;
-    -moz-animation-delay: 1.1199999999999999s;
-    -moz-transform: rotate(135deg);
-    -webkit-animation-delay: 1.1199999999999999s;
-    -webkit-transform: rotate(135deg);
-    -ms-animation-delay: 1.1199999999999999s;
-    -ms-transform: rotate(135deg);
-    -o-animation-delay: 1.1199999999999999s;
-    -o-transform: rotate(135deg);
-    animation-delay: 1.1199999999999999s;
-    transform: rotate(135deg);
-}
-
-#rotateG_07 {
-    bottom: 0;
-    left: 26px;
-    -moz-animation-delay: 1.26s;
-    -moz-transform: rotate(180deg);
-    -webkit-animation-delay: 1.26s;
-    -webkit-transform: rotate(180deg);
-    -ms-animation-delay: 1.26s;
-    -ms-transform: rotate(180deg);
-    -o-animation-delay: 1.26s;
-    -o-transform: rotate(180deg);
-    animation-delay: 1.26s;
-    transform: rotate(180deg);
-}
-
-#rotateG_08 {
-    left: 8px;
-    bottom: 7px;
-    -moz-animation-delay: 1.4s;
-    -moz-transform: rotate(-135deg);
-    -webkit-animation-delay: 1.4s;
-    -webkit-transform: rotate(-135deg);
-    -ms-animation-delay: 1.4s;
-    -ms-transform: rotate(-135deg);
-    -o-animation-delay: 1.4s;
-    -o-transform: rotate(-135deg);
-    animation-delay: 1.4s;
-    transform: rotate(-135deg);
-}
-
-@-moz-keyframes fadeG {
-    0% {
-        background-color: #ffd933;
-    }
-
-    100% {
-        background-color: #1999ce;
-    }
-}
-
-@-webkit-keyframes fadeG {
-    0% {
-        background-color: #ffd933;
-    }
-
-    100% {
-        background-color: #1999ce;
-    }
-}
-
-@-ms-keyframes fadeG {
-    0% {
-        background-color: #ffd933;
-    }
-
-    100% {
-        background-color: #1999ce;
-    }
-}
-
-@-o-keyframes fadeG {
-    0% {
-        background-color: #ffd933;
-    }
-
-    100% {
-        background-color: #1999ce;
-    }
-}
-
-@keyframes fadeG {
-    0% {
-        background-color: #ffd933;
-    }
-
-    100% {
-        background-color: #1999ce;
-    }
-}
-
 .border-vertical {
     border-bottom: solid 2px #dee4f0;
 }
@@ -323,7 +115,7 @@ header .navbar-default .navbar-nav li a span {
 }
 div.home-container-1 {
     margin-top: 0;
-    background-color:rgb(82, 82, 82);
+    background-color: rgb(82, 82, 82);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1537,6 +1329,146 @@ footer .privacy-menu li a:focus {
     color: #8d8989;
     text-decoration: underline;
 }
+
+/*dashboard Design*/
+
+
+/* ### Statistics Box ### */
+
+.statisticsBox {
+    padding-top: 75px;
+    padding-bottom: 55px;
+}
+.statisticsBox .title {
+    font-family: 'helvetica-bold';
+    font-size: 18px;
+    line-height: 0;
+    padding-top: 35px;
+    display: block;
+}
+
+/* ### content box ### */
+
+.contentsBox {
+    position: relative;
+}
+.contentsBox .nav-tabs>li.active>a,
+.contentsBox .nav-tabs>li.active>a:focus,
+.contentsBox .nav-tabs>li.active>a:hover {
+    border: none;
+    color: #768db7;
+}
+.contentsBox .nav-tabs {
+    border: none;
+}
+.contentsBox .nav>li>a {
+    padding: 20px 40px 27px;
+    border-radius: 8px 8px 0 0;
+    border: none;
+    font-size: 24px;
+    color: #8e9198;
+    font-family: 'helvetica';
+}
+.contentsBox .tab-pane {
+    padding-bottom: 20px;
+    position: relative;
+    background: #fff;
+}
+.contentsBox .table>thead>tr>th {
+    border: none;
+}
+.contentsBox .table>tbody>tr>th,
+.contentsBox .table>tfoot>tr>th,
+.contentsBox .table>thead>tr>th {
+    padding: 20px 15px 15px;
+    text-transform: uppercase;
+}
+.contentsBox .table>tbody>tr>td,
+.contentsBox .table>tfoot>tr>td,
+.contentsBox .table>thead>tr>td {
+    padding: 13px 15px 10px;
+    border-top: none;
+    font-size: 15px;
+    color: #8e9198;
+    font-family: 'helvetica';
+}
+.contentsBox .category {
+    padding-right: 8px !important;
+    text-align: right;
+    text-transform: uppercase;
+    border-right: 1px solid #dedede;
+}
+.contentsBox .latter {
+    padding: 0 15px 0 5px;
+    width: 40px;
+    text-align: left;
+    display: inline-block;
+}
+.contentsBox .no-padding {
+    text-align: center;
+    padding: 2px 0 !important;
+}
+.contentsBox a.link {
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    display: inline-block;
+    margin: 10px 0;
+    font-family: 'helvetica';
+    text-decoration: underline;
+}
+.contentsBox a.link:hover {
+    text-decoration: none;
+}
+
+/* ### update box ### */
+
+.updateBox {
+    padding: 60px 0;
+    overflow: hidden;
+    width: 100%;
+}
+.updateBox img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -23px;
+}
+.updateBox li {
+    padding: 8px 200px 8px 40px;
+    cursor: pointer;
+    border-left: 5px solid rgba(0, 0, 0, 0);
+    line-height: 28px;
+    min-height: 55px;
+    margin: 0px 0 20px;
+    float: left;
+    width: 100%;
+    font-family: 'helvetica-bold';
+    color: #999;
+    display: block;
+    position: relative;
+}
+.updateBox .btn {
+    padding: 10px 22px;
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 11px;
+    font-family: 'helvetica';
+}
+.updateBox ul {
+    margin: 25px 0;
+}
+.updateBox li:hover {
+    background: #edf4fb;
+    border-left: 5px solid #ff5b00;
+}
+.updateBox li:hover .btn {
+    display: block;
+}
+
+/*end the dashboard design*/
 
 @media screen and (min-width:320px) and (max-width:767px) {
     header .navbar-default {

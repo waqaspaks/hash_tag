@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/lib/jquery-ui/themes/base/jquery-ui.min.css">
     <link rel="stylesheet" href="/lib/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/loader.css">
     })
     @html.block("body",function(model){
         <body>
@@ -30,6 +31,8 @@
                     }
                     else
                     {
+                    <li><a href="/dashboard" class="bold active">Dashboard</a></li>
+                    <li><a href="/casedesign" class="bold">Case Design</a></li>
                       <li><a href="javascript:void(0)" class="bold" id="logout-user">@model.user.username.split('@')[0] (logout)</a></li>
                     }
                         </ul>
@@ -39,23 +42,8 @@
         </nav>
     </header>
     <div id="js-loader" class="loader">
-        <div class="floating-bars">
-            <div class="blockG" id="rotateG_01">
-            </div>
-            <div class="blockG" id="rotateG_02">
-            </div>
-            <div class="blockG" id="rotateG_03">
-            </div>
-            <div class="blockG" id="rotateG_04">
-            </div>
-            <div class="blockG" id="rotateG_05">
-            </div>
-            <div class="blockG" id="rotateG_06">
-            </div>
-            <div class="blockG" id="rotateG_07">
-            </div>
-            <div class="blockG" id="rotateG_08">
-            </div>
+        <div class="progress">
+           <div class="indeterminate"></div>
         </div>
     </div>
     <div class="top-heading-container">
@@ -187,7 +175,7 @@
                             <img src="/images/hash-tag-case.png" width="220" height="440" alt="Case" class="img-responsive" id="landing-case-body" />
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -290,6 +278,7 @@
             </div>
         </div>
     </footer>
+    <input type="hidden" id="hdn-username" value="@model.user.username"/>
 </body>
     })
     @html.block("scripts", function(model){
