@@ -3,7 +3,7 @@ var passport = require('passport');
 var http = require('http');
 var isLogined = require('connect-ensure-login');
 //users model
-var Users = require("../models/account.js");
+var Account = require("../models/account.js");
 
 //products model
 var Products = require("../models/products.js");
