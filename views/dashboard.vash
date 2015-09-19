@@ -26,8 +26,10 @@
 
                 <div class="collapse navbar-collapse" id="menu">
                     <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/#!" class="bold">Settings</a></li>
+                    <li><a href="/#!" class="bold">Payments</a></li>
                     <li><a href="/dashboard" class="bold active">Dashboard</a></li>
-                    <li><a href="/casedesign" class="bold">Case Design</a></li>
+                    <li><a href="/casedesign" class="bold">Create Case</a></li>
                     @if(!model.user){
                       <li><a href="/login" class="bold" id="logout-user">login</a></li>
                     }
@@ -55,7 +57,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
-                            <span class="title medium-lg-font">[LP Test Shop]</span>
+
                         </div>
                         <div class="col-sm-3 text-center">
                             <p><strong>Total store sales </strong></p>
@@ -87,11 +89,11 @@
                                     <thead>
                                         <tr>
                                             <th></th>
-                                            <th class="dark-color">Version</th>
-                                            <th>views</th>
-                                            <th>sales</th>
-                                            <th>commission (20%)</th>
-                                            <th>Is Deleted</th>
+                                            <th class="dark-color">Campaign Name</th>
+                                            <th>Views</th>
+                                            <th>Sales</th>
+                                            <th>Commission (20%)</th>
+                                            <th>Deleted</th>
                                             <th class="text-center">Link</th>
                                             <th class="text-center">Delete</th>
                                         </tr>

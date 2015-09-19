@@ -696,6 +696,9 @@ div.group-container-1 .uploaded-logos-container {
 div.group-container-1 .uploaded-logos-container .img-cloneable {
     cursor: pointer;
 }
+div.group-container-1 #logo-edit-panel{
+    display: none;
+}
 div.group-container-1 .hash-text label {
     margin-bottom: 0;
     font-weight: 700;
@@ -754,6 +757,7 @@ div.group-container-1 .continue p {
     margin-right: 20px;
     font-size: 15px;
 }
+.btnEditPanel,
 div.group-container-1 .continue .create-case {
     background-color: transparent;
     border: solid 2px #fa377c;
@@ -765,6 +769,9 @@ div.group-container-1 .continue .create-case {
     text-transform: uppercase;
     border-radius: 4px;
 }
+.btnEditPanel:hover,
+.btnEditPanel:active,
+.btnEditPanel:focus,
 div.group-container-1 .continue .create-case:hover,
 div.group-container-1 .continue .create-case:active,
 div.group-container-1 .continue .create-case:focus {
@@ -775,6 +782,7 @@ div.group-container-1 .continue .create-case:focus {
 div.group-container-1 div.case-col,
 div.group-container-1 div.case-col div.containment {
     position: relative;
+    overflow: hidden;
 }
 div.group-container-1 div.case-col p.para-2 {
     font-family: helvetica-bold-cond;
@@ -952,7 +960,7 @@ div.group-container-2 textarea.form-control {
     border: solid 2px #000;
     font-size: 19px;
     resize: none;
-    background-color: transparent;
+    background-color: #ffffff;
     text-transform: uppercase;
     margin-top: 10px;
     height: 70px;
@@ -985,14 +993,32 @@ div.group-container-2 div.case-col div.browser-frame {
     background-repeat: no-repeat;
     background-position: center center;
     text-align: right;
+    padding: 1px;
 }
 div.group-container-2 div.case-col,
 div.group-container-2 div.case-col div.containment {
     position: relative;
 }
 div.group-container-2 div.case-col .containment {
-    display: inline-block;
+    /*display: inline-block;*/
     vertical-align: top;
+}
+div.group-container-2 div.case-col div.brower-frame-text{
+    padding: 0px;
+}
+div.group-container-2 div.case-col div.brower-frame-text #brower-text-heading-dispaly{
+    font-family: helvetica-bold;
+    font-size: 20px;
+    margin: 0 0 0 50px;
+    width: 100%;
+    padding-top: 20px;
+}
+div.group-container-2 div.case-col div.brower-frame-text #brower-text-details-dispaly{
+    font-family: helvetica-bold;
+    font-size: 13px;
+    margin: 0 0 0 50px;
+    width: 100%;
+    padding-top: 20px;
 }
 div.group-container-2 div.case-col p.para-2 {
     font-family: helvetica-bold-cond;

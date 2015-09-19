@@ -5,10 +5,7 @@ $(document).ready(function () {
 
     localStorage.removeItem('logos');
     var username = $("#hdn-username").val();
-    //console.log(getUserInfo());
-    //$("#logout-user").html(username);
-    //get the email address, token and shop name
-    //TODO: username and the shop name is hard coded please provide them with the variable
+
     if (GetURLParameter('st') !== null) {
         var shopifyToken = GetURLParameter('st');
         console.log(shopifyToken);
@@ -38,18 +35,6 @@ $(document).ready(function () {
 
     $("#logout-user").on("click", function () {
         window.location.href = "/logout";
-        /*$.ajax({
-                type: "POST",
-                url: "/api/logout",
-                data: dataReq,
-                contentType: 'application/json',
-                success: function (res) {
-                    window.location.href = "/login";
-                },
-                error: function (err) {
-                    console.log(err)
-                }
-            });*/
     });
 
     //add the color picker
@@ -119,61 +104,93 @@ $(document).ready(function () {
         containment: "#containment"
     });
 
-    //On continue upload and save the product
-    $('#js-create-case').on("click", function () {
-        $("#js-loader").fadeIn();
-        $("body").append('<div class="custom-overlay">');
-        var _hashtag = $("#hashtagfield").val();
-        var _color = $("#bg-color-value").val();
-        var _tagType = $("input:radio[name=converttext]:checked").data(
-            'converttext');
-        var _logo = "";
-        var _design_image = ""; // $("").val();
-        var _shop_info = getShopifyAccessInfo()
+    //Validation for the Product Creation form
+    var validators = $('#product-creation-form').validate({
+        rules: {
+            fieldHashTag: {
+                required: true
+            },
+            converttext: {
+                required: true
+            }
+        },
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },
+        submitHandler: function (form) {
+            $("#js-loader").fadeIn();
+            $("body").append('<div class="custom-overlay">');
+            var _hashtag = $("#hashtagfield").val();
+            var _color = $("#bg-color-value").val();
+            var _tagType = $("input:radio[name=converttext]:checked").data(
+                'converttext');
+            var _logo = "";
+            var _design_image = ""; // $("").val();
+            var _shop_info = getShopifyAccessInfo()
 
-        var canDiv = $('#containment');
-        createimagefromdiv(canDiv, function (err, res) {
-            //return;
-            _design_image = res.savingURL;
-            var shopifyProductRaw = {
-                //shopify_access_token: _shop_info.accessToken,
-                //shop_name: _shop_info.shopName,
-                product_name: "mobile case",
-                product_detail: "<p>" + _hashtag + "<\/p>",
-                product_type: "mobile_case",
-                vandor: "hashtag",
-                color: _color,
-                tag_type: _tagType,
-                logo: _logo,
-                design_image: _design_image,
-                user_email: username
+            var canDiv = $('#containment');
+            createimagefromdiv(canDiv, function (err, res) {
+                //return;
+                _design_image = res.savingURL;
+                var shopifyProductRaw = {
+                    //shopify_access_token: _shop_info.accessToken,
+                    //shop_name: _shop_info.shopName,
+                    product_name: "mobile case",
+                    product_detail: "<p>" + _hashtag + "<\/p>",
+                    product_type: "mobile_case",
+                    vandor: "hashtag",
+                    color: _color,
+                    tag_type: _tagType,
+                    logo: _logo,
+                    design_image: _design_image,
+                    user_email: username
 
-            };
-            console.log(shopifyProductRaw);
-            var shopifyProduct = JSON.stringify(shopifyProductRaw);
-            $.ajax({
-                type: "POST",
-                url: "/api/uploadShopifyProduct",
-                data: shopifyProduct,
-                contentType: 'application/json',
-                success: function (res) {
-                    console.log(res);
-                    addparamentertoUrl(res.data.product.id);
-                    $("#first-panel").hide();
-                    $("#second-panel").fadeIn();
-                    $("#js-loader").fadeOut();
-                    $(".custom-overlay").remove();
-                },
-                error: function (err) {
-                    console.log(err);
+                };
+                console.log(shopifyProductRaw);
+                var shopifyProduct = JSON.stringify(shopifyProductRaw);
+                $.ajax({
+                    type: "POST",
+                    url: "/api/uploadShopifyProduct",
+                    data: shopifyProduct,
+                    contentType: 'application/json',
+                    success: function (res) {
+                        console.log(res);
+                        addparamentertoUrl(res.data.product.id);
+                        $("#first-panel").hide();
+                        $("#second-panel").fadeIn();
+                        $("#js-loader").fadeOut();
+                        $(".custom-overlay").remove();
+                    },
+                    error: function (err) {
+                        console.log(err);
 
-                    $("#js-loader").fadeOut();
-                    $(".custom-overlay").remove();
-                }
+                        $("#js-loader").fadeOut();
+                        $(".custom-overlay").remove();
+                    }
+                });
+                // getToken();
             });
-            // getToken();
-        });
+        }
     });
+
+
+
+
+    /* $('#js-create-case').on("click", function () {
+
+     });*/
 
     //attach the event file upload to the the 'fileuplaod'
     document.getElementById('fileupload').addEventListener('change',
@@ -184,10 +201,10 @@ $(document).ready(function () {
         containment: "#containment",
         scroll: false,
         cursor: "move"
-    }).resizable({
-        containment: "#containment"
     });
-
+    /*.resizable({
+            containment: "#containment"
+        })*/
     //On click image add the image to the case
     $('body').on('click', '.img-cloneable', function () {
         var img_src = $(this).find('img').attr('src');
@@ -219,55 +236,162 @@ $(document).ready(function () {
         //customClass: 'colorpicker-2x',
     }).on('changeColor', function (ev) {
         $('#bg-page-color-value').val(ev.color.toHex());
-        $("#page-case-style").css('background-color', ev.color.toHex());
-        $("#bg-page-color-display").css('background-color', ev.color.toHex());
+        $('.group-container-2').css('background-color', ev.color.toHex());
+        //$("#page-case-style").css('background-color', ev.color.toHex());
+        //$("#bg-page-color-display").css('background-color', ev.color.toHex());
     });
-
-    $("#create-landing-page").on("click", function () {
-        $("#js-loader").fadeIn();
-        $("body").append('<div class="custom-overlay">');
-        var _shop_info = getShopifyAccessInfo();
-
-
-        var _landingPageProductId = GetURLParameter('pid'),
-            _langingPageHeading = $("#landing-page-heading").val(),
-            _landingPagedetails = $("#landing-page-details").val(),
-            _landingPageLogoUrl = "",
-            _langingPageBgColor = $("#bg-page-color-value").val();
-
-        var landingPageInfoRaw = {
-            //shopify_access_token: _shop_info.accessToken,
-            //shop_name: _shop_info.shopName,
-            landingPageProductId: _landingPageProductId,
-            langingPageHeading: _langingPageHeading,
-            landingPagedetails: _landingPagedetails,
-            landingPageLogoUrl: _landingPageLogoUrl,
-            langingPageBgColor: _langingPageBgColor
-        };
-        var landingPageInfo = JSON.stringify(landingPageInfoRaw);
-        $.ajax({
-            type: "POST",
-            url: "/api/saveLandingPage",
-            data: landingPageInfo,
-            contentType: 'application/json',
-            success: function (res) {
-                $("#js-loader").fadeOut();
-                $(".custom-overlay").remove();
-                console.log(res);
-                createComplexString(30, function (strErr, strRes) {
-                    window.location.href = "/affiliate?pid=" +
-                        _landingPageProductId;
-                });
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    /////////Landing page heading change
+    $("#landing-page-heading").on('keyup', function () {
+        if ($(this).val() == "") {
+            $("#brower-text-heading-dispaly").html('[Campaign Heading]');
+        } else {
+            var textVal = $(this).val();
+            $("#brower-text-heading-dispaly").html(textVal);
+        }
+    });
+    $("#landing-page-details").on('keyup', function () {
+        if ($(this).val() == "") {
+            $("#brower-text-details-dispaly").html('[Landing page details]');
+        } else {
+            var textVal = $(this).val();
+            $("#brower-text-details-dispaly").html(textVal);
+        }
+    });
+    /////////Langing page details change
+    /////////Landing page validation and submission to store in store
+    var LangingValidator = $('#landing-page-form').validate({
+        rules: {
+            campaignName: {
+                required: true
             },
-            error: function (err) {
-                $("#js-loader").fadeOut();
-                $(".custom-overlay").remove();
-                console.log(err)
+            campaignDetails: {
+                required: true
             }
-        });
+        },
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },
+        submitHandler: function (form) {
+            $("#js-loader").fadeIn();
+            $("body").append('<div class="custom-overlay">');
+            var _shop_info = getShopifyAccessInfo();
 
+
+            var _landingPageProductId = GetURLParameter('pid'),
+                _langingPageHeading = $("#landing-page-heading").val(),
+                _landingPagedetails = $("#landing-page-details").val(),
+                _landingPageLogoUrl = "",
+                _langingPageBgColor = $("#bg-page-color-value").val();
+
+            var landingPageInfoRaw = {
+                //shopify_access_token: _shop_info.accessToken,
+                //shop_name: _shop_info.shopName,
+                landingPageProductId: _landingPageProductId,
+                langingPageHeading: _langingPageHeading,
+                landingPagedetails: _landingPagedetails,
+                landingPageLogoUrl: _landingPageLogoUrl,
+                langingPageBgColor: _langingPageBgColor
+            };
+            var landingPageInfo = JSON.stringify(landingPageInfoRaw);
+            $.ajax({
+                type: "POST",
+                url: "/api/saveLandingPage",
+                data: landingPageInfo,
+                contentType: 'application/json',
+                success: function (res) {
+                    $("#js-loader").fadeOut();
+                    $(".custom-overlay").remove();
+                    console.log(res);
+                    createComplexString(30, function (strErr, strRes) {
+                        window.location.href = "/affiliate?pid=" +
+                            _landingPageProductId;
+                    });
+                },
+                error: function (err) {
+                    $("#js-loader").fadeOut();
+                    $(".custom-overlay").remove();
+                    console.log(err)
+                }
+            });
+        }
+    });
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    /*$("#create-landing-page").on("click", function () {
+
+
+    });*/
+    var $image = $('#hashtagimg');
+    var $body = $('body');
+    //Image Edit panel
+    $body.on('click', '[data-method]', function () {
+
+        if ($image == null) {
+            alert("please select an image");
+            return;
+        }
+        var data = $(this).data();
+        if (data.method) {
+            data = $.extend({}, data); // Clone a new one
+            console.log(data);
+        }
+        switch (data.method) {
+            case 'zoom':
+                var $width = ($image.parents('#hashtagimgdiv').width());
+                var $addition = data.option;
+                var totalWidth = $width + ($addition);
+                console.log($width + ' + ' + $addition + ' = ' + totalWidth);
+                $image.parents('#hashtagimgdiv').width(totalWidth);
+                //$image.parents('.img-container').css('width', totalWidth + 'px;');
+                break;
+            case 'rotate':
+                var $angle = getRotationDegrees($image);
+                console.log($angle);
+                var rotation = $angle + data.option;
+                $image.css('transform', 'rotate(' + rotation + 'deg)');
+                break;
+            case 'delete':
+                $('#hashtagimgdiv').hide();
+                $('#logo-edit-panel').fadeOut();
+                var $imgParent = $('#hashtagimgdiv');
+                $imgParent.css('width', '50px');
+                $imgParent.css('height', '50px');
+                $image.attr('src', '');
+                $image.css('transform', '');
+                break;
+        };
     });
 });
+
+function getRotationDegrees(obj) {
+    var matrix = obj.css("-webkit-transform") ||
+        obj.css("-moz-transform") ||
+        obj.css("-ms-transform") ||
+        obj.css("-o-transform") ||
+        obj.css("transform");
+    if (matrix !== 'none') {
+        var values = matrix.split('(')[1].split(')')[0].split(',');
+        var a = values[0];
+        var b = values[1];
+        var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+    } else {
+        var angle = 0;
+    }
+    return (angle < 0) ? angle += 360 : angle;
+}
+
 
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
@@ -292,8 +416,8 @@ function handleFileSelect(evt) {
                                                    title='" + escape(theFile.name) + "' style='width:85px'/>\n\
                                                   </div>");*/
                 $('#hashtagimg').attr('src', e.target.result);
-                $('#hashtagimgdiv').show();
-
+                $('#hashtagimgdiv').fadeIn();
+                $('#logo-edit-panel').fadeIn();
                 localStorage.setItem('logos', e.target.result);
             };
         })(f);

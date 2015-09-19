@@ -44,8 +44,10 @@
                     }
                     else
                     {
+                    <li><a href="/#!" class="bold">Settings</a></li>
+                    <li><a href="/#!" class="bold">Payments</a></li>
                     <li><a href="/dashboard" class="bold active">Dashboard</a></li>
-                    <li><a href="/casedesign" class="bold">Case Design</a></li>
+                    <li><a href="/casedesign" class="bold">Create Case</a></li>
                       <li><a href="javascript:void(0)" class="bold" id="logout-user">@model.user.username.split('@')[0] (logout)</a></li>
                     }
                         </ul>

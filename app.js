@@ -46,7 +46,8 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
-mongoose.connect('mongodb://localhost:27017/hashtag_mongo_db');
+//mongoose.connect('mongodb://localhost:27017/hashtag_mongo_db');
+mongoose.connect('mongodb://hashtagmycaseadmin:Apple718@ds042138.mongolab.com:42138/hashtagmycase');
 
 ///////////////////////////////////////////
 passport.use('loginUser', new LocalStrategy(

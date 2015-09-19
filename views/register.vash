@@ -64,7 +64,7 @@
                             <label class="control-label">
                                 <input type="checkbox" name="agreement" id="inlineCheckbox1" value="option1" data-error="Please accept our terms">
                                 <span>
-                                    I agree to something I will never read
+                                    I agree to terms and conditions
                                 </span>
                             </label>
                         </div>

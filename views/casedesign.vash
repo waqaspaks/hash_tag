@@ -31,8 +31,10 @@
                     }
                     else
                     {
+                    <li><a href="/#!" class="bold">Settings</a></li>
+                    <li><a href="/#!" class="bold">Payments</a></li>
                     <li><a href="/dashboard" class="bold active">Dashboard</a></li>
-                    <li><a href="/casedesign" class="bold">Case Design</a></li>
+                    <li><a href="/casedesign" class="bold">Create Case</a></li>
                       <li><a href="javascript:void(0)" class="bold" id="logout-user">@model.user.username.split('@')[0] (logout)</a></li>
                     }
                         </ul>
@@ -81,7 +83,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-sm-8 col-md-9 left-col">
+                <form class="col-sm-8 col-md-9 left-col" id="product-creation-form" role="form" method="POST">
                     <div class="form-group bg-color">
                         <label>choose background color</label>
                         <div id="bg-color-picker" class="form-control color-picker">
@@ -96,10 +98,36 @@
                             <input type="file" value="Upload" id="fileupload" accept="image/*" />
                         </div>
                     </div>
-                    <div class="form-group uploaded-logos-container">
+                    <div class="form-group" id="logo-edit-panel">
+                        <div class="btn-group">
+                            <button type="button" class="btn btnEditPanel" data-method="zoom" data-option="10" title="Zoom In">
+                                <span class="docs-tooltip" data-toggle="tooltip">
+                                    <span class="glyphicon glyphicon-zoom-in"></span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btnEditPanel" data-method="zoom" data-option="-10" title="Zoom Out">
+                                <span class="docs-tooltip" data-toggle="tooltip" >
+                                    <span class="glyphicon glyphicon-zoom-out"></span>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btnEditPanel" data-method="rotate" data-option="10" title="Rotate Left">
+                                <span class="docs-tooltip" data-toggle="tooltip">
+                                    <span class="glyphicon glyphicon-repeat"></span>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btnEditPanel" data-method="delete" title="Delete Image">
+                                <span class="docs-tooltip" data-toggle="tooltip">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </span>
+                            </button>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control input-lg" id="hashtagfield" placeholder="speak your mind..."></textarea>
+                        <textarea class="form-control input-lg" id="hashtagfield" name="fieldHashTag" placeholder="speak your mind..."></textarea>
                         <input type="hidden" id="original_text" />
                         <div class="hash-text">
                             <label>
@@ -114,9 +142,9 @@
                     </div>
                     <div class="form-group continue">
                         <p>purchasers will pay $28 (free shipping)</p>
-                        <button type="button" class="create-case" id="js-create-case">continue</button>
+                        <input type="submit" class="create-case" id="js-create-case" value="continue"/>
                     </div>
-                </div>
+                </form>
 
                 <div class="col-sm-4 col-md-3 case-col">
                     <div id="containment" class="containment">
@@ -142,7 +170,7 @@
             </div>
         </div>
     </div>
-
+<form id="landing-page-form" method="POST" role="form">
     <div class="group-container-2">
         <div class="container">
 
@@ -151,7 +179,7 @@
 
                     <div class="form-group">
                         <label>name your campaign</label>
-                        <input type="text" class="form-control" id="landing-page-heading"/>
+                        <input type="text" class="form-control" id="landing-page-heading" name="campaignName"/>
                     </div>
 
                     <div class="form-group bg-color">
@@ -164,64 +192,39 @@
 
                     <div class="form-group">
                         <label>add landing page text</label>
-                        <textarea class="form-control input-lg" rows="7" id="landing-page-details"></textarea>
+                        <textarea name="campaignDetails" class="form-control input-lg" rows="7" id="landing-page-details"></textarea>
                     </div>
 
                 </div>
 
                 <div class="col-sm-5 case-col">
-                    <div class="browser-frame">
+                <div class="col-xs-12">
+                    <div class="browser-frame col-xs-6">
                         <div id="containment" class="containment">
                             <img src="/images/hash-tag-case.png" width="220" height="440" alt="Case" class="img-responsive" id="landing-case-body" />
                         </div>
                     </div>
-
+                    <div class="brower-frame-text col-xs-6">
+                        <h1 id="brower-text-heading-dispaly">[Campaign Heading]</h1>
+                        <p id="brower-text-details-dispaly">[Landing page details]</p>
+                    </div>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
-
-    <div class="group-container-3" style="display:none;">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h3>Commission is 25% and can be paid weekly, donated to charity, or exchanged for credits to give discounts or free items to customers.</h3>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12 donation">
-                    <label>donate a percentage to charity?</label>
-                    <div>
-                        <input type="text" class="form-control" />
-                        <input type="text" class="form-control" />
-                        <button type="button" class="choose">choose</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12 paypal">
-                    <label>paypal email address</label>
-                    <div>
-                        <input type="text" class="form-control" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="group-container-4">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <p>you can publish, share and view stats on the next page</p>
-                    <button type="button" class="generate-page" id="create-landing-page">generate your landing page</button>
+                    <input type="submit" class="generate-page" id="create-landing-page" value="generate your landing page">
                 </div>
             </div>
         </div>
     </div>
+    </form>
 </div>
     <footer>
         <div class="container">
