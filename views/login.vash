@@ -76,7 +76,7 @@
     </footer>
 
     <!-- Start of Modal popup for forget password -->
-    <div class="modal forget-password-popup fade" id="forget-password-popup" tabindex="-1" role="dialog" aria-labelledby="signupBetaModal" aria-hidden="false">
+    <div class="modal forget-password-popup fade" id="forget-password-popup" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="signupBetaModal" aria-hidden="false">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
