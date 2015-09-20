@@ -31,6 +31,9 @@
         background: #dde2e7;
     }
 }
+.throbber-loader {
+    left: 50%;
+}
 
 /* :not(:required) hides these rules from IE9 and below */
 
@@ -42,8 +45,10 @@
     display: inline-block;
     position: relative;
     text-indent: -9999px;
-    width: 0.9em;
-    height: 1.5em;
+    /*width: 0.9em;
+    height: 1.5em;*/
+    width: 1.3em;
+    height: 2.5em;
     margin: 0 1.6em;
 }
 .throbber-loader:not(:required):before,
@@ -51,8 +56,10 @@
     background: #dde2e7;
     content: '\x200B';
     display: inline-block;
-    width: 0.9em;
-    height: 1.5em;
+    /*width: 0.9em;
+    height: 1.5em;*/
+    width: 1.3em;
+    height: 2.5em;
     position: absolute;
     top: 0;
 }
