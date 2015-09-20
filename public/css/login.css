@@ -66,12 +66,40 @@ div.login-form-container .login-btn .btn {
     font-size: 18px;
     font-family: 'Lato', Helvetica, sans-serif;
     font-weight: 300;
+    width: 100%;
+}
+div.login-form-container .forget-password {
+    border-top: solid 1px #ccc;
+    padding-top: 20px;
+    text-align: center;
+    margin-top: 30px;
+    text-align: right;
+}
+div.login-form-container .forget-password .forget-password-link {
+    width: 100%;
 }
 div.login-form-container .login-form .errMessage {
     color: darkorange;
     font-size: 18px;
     font-family: 'Lato', Helvetica, sans-serif;
     font-weight: 300;
+}
+div.modal-header h1{
+    color: #333333;
+    font-family: "Lato",Helvetica,sans-serif;
+    font-size: 25px;
+}
+div.forget-password-form-div {
+    width: 100%;
+    padding-bottom: 50px;
+}
+div.forget-password-form-div .forget-btn {
+    width: 100%;
+}
+div.forget-password-form-div .forget-btn .btn {
+    float: right;
+    font-size: 20px;
+    padding: 5px 40px;
 }
 div.register-info-wraper {
     background: rgba(0, 0, 0, 0.2);
@@ -307,6 +335,10 @@ footer.login p a:focus {
     color: white;
     outline: 0;
     text-decoration: none;
+}
+.modal-backdrop{
+    background-color: #fff;
+    opacity: .70;
 }
 @media screen and (min-width:320px) and (max-width:767px) {
     header.login {

@@ -10,6 +10,10 @@ var Products = require("../models/products.js");
 
 //shpify modal
 var shopifModal = require("../models/shopify.js");
+
+//customer.io /// hashtagdev@yopmail.com || Apple718
+
+
 var router = express.Router();
 
 //main root
@@ -49,7 +53,9 @@ router.get('/dashboard', isLogined.ensureLoggedIn(), function (req, res) {
 
 
 router.get('/register', function (req, res) {
-    res.render('register', {});
+    res.render('register', {
+        title: '#mycase :: register'
+    });
 });
 
 router.post('/register', function (req, res) {
@@ -70,7 +76,8 @@ router.post('/register', function (req, res) {
 
 router.get('/login', function (req, res) {
     res.render('login', {
-        user: req.user
+        user: req.user,
+        title: '#mycase :: login'
     });
 });
 
@@ -100,6 +107,11 @@ router.post('/login', function (req, res, next) {
 router.get('/logout', function (req, res) {
     req.logout();
     res.redirect('/');
+});
+
+router.post('/api/sendUserPasswordInformation', function (req, res) {
+    var _emailAddress = req.body.emailaddress;
+
 });
 
 router.get('/casedesign', isLogined.ensureLoggedIn(), function (req, res) {
