@@ -340,6 +340,13 @@ footer.login p a:focus {
     background-color: #fff;
     opacity: .70;
 }
+
+#form-error-message {
+    color: darkorange;
+    font-size: 18px;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 300;
+}
 @media screen and (min-width:320px) and (max-width:767px) {
     header.login {
         position: relative;

@@ -83,7 +83,7 @@ $(document).ready(function () {
         },
         submitHandler: function (form) {
             $("#js-loader").fadeIn();
-            $(".errMessage").html('');
+            $("#form-error-message").html('');
             var _emailAddress = $("#emailAddress").val();
             var dataReqRaw = {
                 emailaddress: _emailAddress
@@ -97,10 +97,12 @@ $(document).ready(function () {
                 contentType: 'application/json',
                 success: function (res) {
                     console.log(res);
+                    $("#form-error-message").html(mailRetRes);
                     $("#js-loader").fadeOut();
                 },
                 error: function (err) {
                     console.log(err);
+                    $("#form-error-message").html(err.responseText);
                     $("#js-loader").fadeOut();
                 }
             });
